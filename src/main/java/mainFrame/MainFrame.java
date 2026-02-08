@@ -4,6 +4,7 @@
  */
 package mainFrame;
 
+import adminLogin.AdminLoginPanel;
 import homePanel.HomePanel;
 import java.awt.CardLayout;
 import javax.swing.JFrame;
@@ -28,8 +29,10 @@ public class MainFrame extends JFrame{
         mainPanel = new JPanel(cardLayout);
         // Panels
         HomePanel homePanel = new HomePanel(this);
+        AdminLoginPanel adminLoginPanel = new AdminLoginPanel(this);
 
         mainPanel.add(homePanel, "HOME");
+        mainPanel.add(adminLoginPanel, "ADMIN_LOGIN");
 
         setContentPane(mainPanel);
         setVisible(true);

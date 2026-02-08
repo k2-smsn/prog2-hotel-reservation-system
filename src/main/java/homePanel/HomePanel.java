@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -22,36 +23,49 @@ import mainFrame.MainFrame;
 public class HomePanel extends JPanel{
      public HomePanel(MainFrame frame) {
         setLayout(new BorderLayout());
-
-        // LEFT PANEL (30%) - Welcome + Buttons
-        JPanel leftPanel = new JPanel();
-        leftPanel.setPreferredSize(new Dimension(270, 600)); // ~30% of 900
-        leftPanel.setBackground(Color.WHITE);
-        leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
-
-        JLabel welcomeLabel = new JLabel("<html><center>Welcome to<br>Hotel Reservation System</center></html>");
-        welcomeLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
-        welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        JButton btnReserve = new JButton("Make a Reservation");
-        JButton btnView = new JButton("View Reservations");
         
-        btnReserve.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btnView.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        leftPanel.add(Box.createVerticalGlue());
-        leftPanel.add(welcomeLabel);
-        leftPanel.add(Box.createVerticalStrut(30));
-        leftPanel.add(btnReserve);
-        leftPanel.add(Box.createVerticalStrut(15));
-        leftPanel.add(btnView);
-        leftPanel.add(Box.createVerticalGlue());
-        
-        // RIGHT PANEL (70%) - Background
+        // CENTER PANEL (70% of frame) - Background
         JPanel backgroundPanel = new JPanel();
         backgroundPanel.setBackground(new Color(40, 90, 130)); // placeholder
 
-        add(leftPanel, BorderLayout.WEST);
+        // SIDE PANEL (30% of frame) - Welcome + Buttons
+        JPanel sidePanel = new JPanel();
+        sidePanel.setPreferredSize(new Dimension(270, 600)); // ~30% of 900
+        sidePanel.setBackground(Color.WHITE);
+        sidePanel.setLayout(new BoxLayout(sidePanel, BoxLayout.Y_AXIS));
+
+        //LABEL
+        JLabel welcomeLabel = new JLabel("<html><center>Welcome to<br>Hilton Hotel</center></html>");
+        welcomeLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        welcomeLabel.setHorizontalAlignment(JLabel.CENTER);
+
+        //BUTTONS
+        JButton loginBtn = new JButton("Admin Login");
+        JButton menuBtn = new JButton("User Menu");
+        
+        loginBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        menuBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
+        loginBtn.setFocusable(false);
+        menuBtn.setFocusable(false);
+        
+        loginBtn.addActionListener(e -> {
+            frame.showPanel("ADMIN_LOGIN");
+        });
+        
+        //ASSEMBLE SIDE PANEL
+        sidePanel.add(Box.createVerticalGlue());
+        sidePanel.add(welcomeLabel);
+        sidePanel.add(Box.createVerticalStrut(30));
+        sidePanel.add(loginBtn);
+        sidePanel.add(Box.createVerticalStrut(15));
+        sidePanel.add(menuBtn);
+        sidePanel.add(Box.createVerticalGlue());
+        
+        //ASSEMBLE CLASS    
         add(backgroundPanel, BorderLayout.CENTER);
+        add(sidePanel, BorderLayout.EAST);
+        
      }
 }

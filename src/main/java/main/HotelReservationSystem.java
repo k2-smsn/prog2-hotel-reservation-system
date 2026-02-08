@@ -4,6 +4,8 @@
 
 package main;
 
+import mainFrame.MainFrame;
+
 /**
  *
  * @author k2
@@ -11,6 +13,6 @@ package main;
 public class HotelReservationSystem {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new MainFrame();
     }
 }
