@@ -13,6 +13,8 @@ import java.awt.*;
 import mainFrame.MainFrame;
 
 public class AdminLoginPanel extends JPanel {
+    private String userName = "admin";
+    private String password = "123";
 
     public AdminLoginPanel(MainFrame frame) {
         setLayout(new BorderLayout());
@@ -40,6 +42,16 @@ public class AdminLoginPanel extends JPanel {
         JButton loginButton = new JButton("Login"); //LOGIN BUTTON
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         
+        loginButton.addActionListener(e -> {
+            String admin = adminField.getText();
+            char[] password = passwordField.getPassword();
+            
+            if(admin.equals(userName) && password.equals(password)) {
+                frame.showPanel("ADMIN_DASHBOARD");
+            }
+            
+        });
+        
         //ASSEMBLE CENTER PANEL
         centerPanel.add(Box.createVerticalGlue());
         centerPanel.add(titleLabel);
@@ -58,14 +70,14 @@ public class AdminLoginPanel extends JPanel {
 
         JButton backButton = new JButton("Back");
         
+        //BACK BUTTON ACTIONS
+        backButton.addActionListener(e -> frame.showPanel("HOME")); //GO BACK TO HOME
+        
         //PLACE TO BOTTOM LEFT
         southPanel.add(Box.createHorizontalStrut(15));
         southPanel.add(backButton);
         southPanel.add(Box.createHorizontalGlue());
         southPanel.add(Box.createVerticalStrut(15));
-
-        // Actions
-        backButton.addActionListener(e -> frame.showPanel("HOME")); //GO BACK TO HOME
 
         add(centerPanel, BorderLayout.CENTER);
         add(southPanel, BorderLayout.SOUTH);

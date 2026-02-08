@@ -4,6 +4,7 @@
  */
 package mainFrame;
 
+import adminDashboard.AdminDashboardPanel;
 import adminLogin.AdminLoginPanel;
 import homePanel.HomePanel;
 import java.awt.CardLayout;
@@ -19,6 +20,7 @@ public class MainFrame extends JFrame{
     private JPanel mainPanel;
 
     public MainFrame() {
+        //SETUP FRAME (this)
         setTitle("Hotel Reservation System");
         setSize(900, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,13 +28,16 @@ public class MainFrame extends JFrame{
         setResizable(false);
 
         cardLayout = new CardLayout();
-        mainPanel = new JPanel(cardLayout);
+        mainPanel = new JPanel(cardLayout); //INITIALIZE MAIN PANEL W/ LAYOUT
+        
         // Panels
         HomePanel homePanel = new HomePanel(this);
         AdminLoginPanel adminLoginPanel = new AdminLoginPanel(this);
+        AdminDashboardPanel adminDashboard = new AdminDashboardPanel(this);
 
         mainPanel.add(homePanel, "HOME");
         mainPanel.add(adminLoginPanel, "ADMIN_LOGIN");
+        mainPanel.add(adminDashboard, "ADMIN_DASHBOARD");
 
         setContentPane(mainPanel);
         setVisible(true);
