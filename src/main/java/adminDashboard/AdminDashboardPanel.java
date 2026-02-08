@@ -67,6 +67,7 @@ public class AdminDashboardPanel extends JPanel {
 
         // BUTTON ACTIONS
         viewRoomsBtn.addActionListener(e -> frame.showPanel("VIEW_ROOMS"));
+        updateRoomsBtn.addActionListener(e -> frame.showPanel("UPDATE_ROOMS"));
         logoutBtn.addActionListener(e -> frame.showPanel("HOME"));
 
         add(centerPanel, BorderLayout.CENTER);
