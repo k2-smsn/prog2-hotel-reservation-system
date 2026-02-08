@@ -41,7 +41,7 @@ public class ViewRoomsPanel extends JPanel {
 
         // SOUTH PANEL (Back button)
         JButton backButton = new JButton("Back");
-        backButton.addActionListener(e -> frame.showPanel("HOME"));
+        backButton.addActionListener(e -> frame.showPanel("USER_MENU"));
 
         JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         southPanel.add(backButton);

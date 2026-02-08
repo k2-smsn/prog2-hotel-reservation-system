@@ -28,22 +28,19 @@ public class AdminDashboardPanel extends JPanel {
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         //BUTTONS SETUP
-        JButton viewRoomsBtn = new JButton("View Rooms");
         JButton updateRoomsBtn = new JButton("Update Rooms");
         JButton viewResBtn = new JButton("View Reservations");
         JButton logoutBtn = new JButton("Logout");
 
         Dimension buttonSize = new Dimension(250, 35); //BUTTON SIZING
-        viewRoomsBtn.setMaximumSize(buttonSize);
         updateRoomsBtn.setMaximumSize(buttonSize);
         viewResBtn.setMaximumSize(buttonSize);
         logoutBtn.setMaximumSize(buttonSize);
-        
-        viewRoomsBtn.setFocusable(false);
+
         updateRoomsBtn.setFocusable(false);
         viewResBtn.setFocusable(false);
         
-        viewRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT); //BUTTON ALIGNMENT
+        //BUTTON ALIGNMENT
         updateRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         viewResBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         logoutBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -56,7 +53,6 @@ public class AdminDashboardPanel extends JPanel {
         centerPanel.add(titleLabel);
         centerPanel.add(Box.createVerticalStrut(30));
 
-        centerPanel.add(viewRoomsBtn);
         centerPanel.add(Box.createVerticalStrut(15));
         centerPanel.add(updateRoomsBtn);
         centerPanel.add(Box.createVerticalStrut(15));
@@ -70,11 +66,6 @@ public class AdminDashboardPanel extends JPanel {
         centerPanel.add(Box.createVerticalGlue());
 
         // BUTTON ACTIONS
-        viewRoomsBtn.addActionListener(e -> {
-            frame.showPanel("VIEW_ROOMS");
-            frame.viewRooms.updateRooms();
-        });
-        
         updateRoomsBtn.addActionListener(e -> frame.showPanel("UPDATE_ROOMS"));
         
         logoutBtn.addActionListener(e -> frame.showPanel("HOME"));
