@@ -58,10 +58,11 @@ public class UpdateRoomsPanel extends JPanel {
                     Room room = appData.Data.rooms.get(index++);
                     JButton roomBtn = new JButton(room.getType() + " : " + room.getRoomNumber());
 
-                    roomBtn.setOpaque(true);
+                    roomBtn.setOpaque(true); //BUTTON DESIGN
                     roomBtn.setForeground(Color.WHITE);
                     roomBtn.setFont(new Font("Segoe UI", Font.BOLD, 16));
                     roomBtn.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+                    roomBtn.setFocusable(false);
                     
                     // Set background color based on availability
                     if (room.isOccupied()) {

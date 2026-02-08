@@ -38,7 +38,11 @@ public class AdminDashboardPanel extends JPanel {
         updateRoomsBtn.setMaximumSize(buttonSize);
         updateResBtn.setMaximumSize(buttonSize);
         logoutBtn.setMaximumSize(buttonSize);
-
+        
+        viewRoomsBtn.setFocusable(false);
+        updateRoomsBtn.setFocusable(false);
+        updateResBtn.setFocusable(false);
+        
         viewRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT); //BUTTON ALIGNMENT
         updateRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         updateResBtn.setAlignmentX(Component.CENTER_ALIGNMENT);

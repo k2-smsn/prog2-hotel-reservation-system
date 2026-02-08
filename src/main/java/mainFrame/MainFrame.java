@@ -11,6 +11,7 @@ import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import updateRooms.UpdateRoomsPanel;
+import userMenu.UserMenuPanel;
 import viewRooms.ViewRoomsPanel;
 
 /**
@@ -26,6 +27,7 @@ public class MainFrame extends JFrame{
     public AdminDashboardPanel adminDashboard = new AdminDashboardPanel(this);
     public ViewRoomsPanel viewRooms = new ViewRoomsPanel(this);
     public UpdateRoomsPanel updateRooms = new UpdateRoomsPanel(this);
+    public UserMenuPanel userMenu = new UserMenuPanel(this);
 
     public MainFrame() {
         //SETUP FRAME (this)
@@ -50,7 +52,7 @@ public class MainFrame extends JFrame{
         mainPanel.add(adminDashboard, "ADMIN_DASHBOARD");
         mainPanel.add(viewRooms, "VIEW_ROOMS");
         mainPanel.add(updateRooms, "UPDATE_ROOMS");
-        
+        mainPanel.add(userMenu, "USER_MENU");
 
         setContentPane(mainPanel);
         setVisible(true);

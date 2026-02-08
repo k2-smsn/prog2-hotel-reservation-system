@@ -41,7 +41,10 @@ public class UserMenuPanel extends JPanel {
         viewRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         bookBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         checkoutBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
-
+        
+        //BUTTON ACTIONS
+        //----
+        
         centerPanel.add(viewRoomsBtn);
         centerPanel.add(Box.createVerticalStrut(15));
         centerPanel.add(bookBtn);
@@ -58,5 +61,7 @@ public class UserMenuPanel extends JPanel {
         southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));
         southPanel.add(Box.createHorizontalStrut(10));
         southPanel.add(backButton);
+        
+        add(southPanel, BorderLayout.SOUTH);
     }
 }

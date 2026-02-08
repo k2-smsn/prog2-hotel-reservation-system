@@ -54,6 +54,10 @@ public class HomePanel extends JPanel{
             frame.showPanel("ADMIN_LOGIN");
         });
         
+        menuBtn.addActionListener(e -> {
+            frame.showPanel("USER_MENU");
+        });
+        
         //ASSEMBLE SIDE PANEL
         sidePanel.add(Box.createVerticalGlue());
         sidePanel.add(welcomeLabel);
