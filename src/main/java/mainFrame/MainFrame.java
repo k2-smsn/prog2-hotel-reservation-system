@@ -6,6 +6,7 @@ package mainFrame;
 
 import adminDashboard.AdminDashboardPanel;
 import adminLogin.AdminLoginPanel;
+import checkout.CheckoutPanel;
 import homePanel.HomePanel;
 import java.awt.CardLayout;
 import javax.swing.JFrame;
@@ -32,6 +33,7 @@ public class MainFrame extends JFrame{
     public UserMenuPanel userMenu = new UserMenuPanel(this);
     public ReservationFormPanel reservationForm = new ReservationFormPanel(this);
     public ViewReservationsPanel viewRes = new ViewReservationsPanel(this);
+    public CheckoutPanel checkout = new CheckoutPanel(this);
     
     public MainFrame() {
         //SETUP FRAME (this)
@@ -52,6 +54,7 @@ public class MainFrame extends JFrame{
         mainPanel.add(viewRes, "VIEW_RES");
         mainPanel.add(userMenu, "USER_MENU");
         mainPanel.add(reservationForm, "RESERVATION_FORM");
+        mainPanel.add(checkout, "CHECKOUT");
         
         setContentPane(mainPanel);
         setVisible(true);

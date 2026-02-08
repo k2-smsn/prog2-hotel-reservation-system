@@ -45,6 +45,7 @@ public class UserMenuPanel extends JPanel {
         //BUTTON ACTIONS
         viewRoomsBtn.addActionListener(e -> frame.showPanel("VIEW_ROOMS"));
         bookBtn.addActionListener(e -> frame.showPanel("RESERVATION_FORM"));
+        checkoutBtn.addActionListener(e -> frame.showPanel("CHECKOUT"));
         
         centerPanel.add(viewRoomsBtn);
         centerPanel.add(Box.createVerticalStrut(15));
