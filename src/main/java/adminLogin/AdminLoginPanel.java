@@ -48,6 +48,8 @@ public class AdminLoginPanel extends JPanel {
             
             if(admin.equals(userName) && password.equals(password)) {
                 frame.showPanel("ADMIN_DASHBOARD");
+                adminField.setText("");
+                passwordField.setText("");
             }
             
         });
