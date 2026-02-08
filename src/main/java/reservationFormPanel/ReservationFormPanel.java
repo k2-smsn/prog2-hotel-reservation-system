@@ -190,7 +190,15 @@ public class ReservationFormPanel extends JPanel {
             JOptionPane.showMessageDialog(this,
                     "Booking Successful!\n\n" + reservation.getSummary());
 
-            frame.showPanel("USER_LANDING");
+            frame.showPanel("USER_MENU");
+            
+            //CLEAR FORM
+            nameField.setText("");
+            mobileField.setText("");
+            emailField.setText("");
+            checkInField.setText("");
+            checkOutField.setText("");
+            
         });
 
         //ASSEMBLE SOUTH PANEL

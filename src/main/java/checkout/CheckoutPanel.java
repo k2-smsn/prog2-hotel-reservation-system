@@ -131,6 +131,11 @@ public class CheckoutPanel extends JPanel {
                         "Payment successful!\nCheckout complete.");
 
                 frame.showPanel("HOME");
+                
+                //CLEAR FORM
+                reservationIdField.setText("");
+                summaryLabel.setText("");
+                
 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this,
