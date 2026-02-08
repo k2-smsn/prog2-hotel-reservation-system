@@ -17,6 +17,7 @@ public class ViewRoomsPanel extends JPanel {
 
     private static final int ROWS = 3;
     private static final int COLUMNS = 4;
+    private JPanel gridPanel;
 
     public ViewRoomsPanel(MainFrame frame) {
         setLayout(new BorderLayout());
@@ -29,9 +30,27 @@ public class ViewRoomsPanel extends JPanel {
         add(titleLabel, BorderLayout.NORTH);
 
         // Grid panel
-        JPanel gridPanel = new JPanel(new GridLayout(ROWS, COLUMNS, 10, 10));
+        gridPanel = new JPanel(new GridLayout(ROWS, COLUMNS, 10, 10));
         gridPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         gridPanel.setBackground(Color.WHITE);
+        
+        updateRooms();
+        
+        //ADD GRID TO MAIN PANEL CENTER
+        add(gridPanel, BorderLayout.CENTER);
+
+        // SOUTH PANEL (Back button)
+        JButton backButton = new JButton("Back");
+        backButton.addActionListener(e -> frame.showPanel("ADMIN_DASHBOARD"));
+
+        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        southPanel.add(backButton);
+        add(southPanel, BorderLayout.SOUTH);
+    }
+    
+    public void updateRooms() {
+        //CLEAR ROOMS FOR RE RENDER
+        gridPanel.removeAll();
         
         //CREATE LABELS(ROOM) TO PUT ON GRID
         int index = 0;
@@ -64,16 +83,5 @@ public class ViewRoomsPanel extends JPanel {
                 }
             }
         }
-        
-        //ADD GRID TO MAIN PANEL CENTER
-        add(gridPanel, BorderLayout.CENTER);
-
-        // SOUTH PANEL (Back button)
-        JButton backButton = new JButton("Back");
-        backButton.addActionListener(e -> frame.showPanel("ADMIN_DASHBOARD"));
-
-        JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        southPanel.add(backButton);
-        add(southPanel, BorderLayout.SOUTH);
     }
 }

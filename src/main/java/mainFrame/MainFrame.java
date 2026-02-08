@@ -20,6 +20,12 @@ import viewRooms.ViewRoomsPanel;
 public class MainFrame extends JFrame{
     private CardLayout cardLayout;
     private JPanel mainPanel;
+    
+    public HomePanel homePanel = new HomePanel(this);
+    public AdminLoginPanel adminLoginPanel = new AdminLoginPanel(this);
+    public AdminDashboardPanel adminDashboard = new AdminDashboardPanel(this);
+    public ViewRoomsPanel viewRooms = new ViewRoomsPanel(this);
+    public UpdateRoomsPanel updateRooms = new UpdateRoomsPanel(this);
 
     public MainFrame() {
         //SETUP FRAME (this)
@@ -33,11 +39,11 @@ public class MainFrame extends JFrame{
         mainPanel = new JPanel(cardLayout); //INITIALIZE MAIN PANEL W/ LAYOUT
         
         // Panels
-        HomePanel homePanel = new HomePanel(this);
-        AdminLoginPanel adminLoginPanel = new AdminLoginPanel(this);
-        AdminDashboardPanel adminDashboard = new AdminDashboardPanel(this);
-        ViewRoomsPanel viewRooms = new ViewRoomsPanel(this);
-        UpdateRoomsPanel updateRooms = new UpdateRoomsPanel(this);
+        homePanel = new HomePanel(this);
+        adminLoginPanel = new AdminLoginPanel(this);
+        adminDashboard = new AdminDashboardPanel(this);
+        viewRooms = new ViewRoomsPanel(this);
+        updateRooms = new UpdateRoomsPanel(this);
 
         mainPanel.add(homePanel, "HOME");
         mainPanel.add(adminLoginPanel, "ADMIN_LOGIN");

@@ -66,7 +66,11 @@ public class AdminDashboardPanel extends JPanel {
         centerPanel.add(Box.createVerticalGlue());
 
         // BUTTON ACTIONS
-        viewRoomsBtn.addActionListener(e -> frame.showPanel("VIEW_ROOMS"));
+        viewRoomsBtn.addActionListener(e -> {
+            frame.showPanel("VIEW_ROOMS");
+            frame.viewRooms.updateRooms();
+        });
+        
         updateRoomsBtn.addActionListener(e -> frame.showPanel("UPDATE_ROOMS"));
         logoutBtn.addActionListener(e -> frame.showPanel("HOME"));
 
