@@ -10,6 +10,7 @@ import homePanel.HomePanel;
 import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import viewRooms.ViewRoomsPanel;
 
 /**
  *
@@ -34,10 +35,13 @@ public class MainFrame extends JFrame{
         HomePanel homePanel = new HomePanel(this);
         AdminLoginPanel adminLoginPanel = new AdminLoginPanel(this);
         AdminDashboardPanel adminDashboard = new AdminDashboardPanel(this);
+        ViewRoomsPanel viewRooms = new ViewRoomsPanel(this);
 
         mainPanel.add(homePanel, "HOME");
         mainPanel.add(adminLoginPanel, "ADMIN_LOGIN");
         mainPanel.add(adminDashboard, "ADMIN_DASHBOARD");
+        mainPanel.add(viewRooms, "VIEW_ROOMS");
+        
 
         setContentPane(mainPanel);
         setVisible(true);

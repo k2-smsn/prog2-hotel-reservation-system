@@ -28,21 +28,21 @@ public class AdminDashboardPanel extends JPanel {
         titleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         //BUTTONS SETUP
-        JButton btnViewRooms = new JButton("View Rooms");
-        JButton btnUpdateRooms = new JButton("Update Rooms");
-        JButton btnUpdateReservations = new JButton("Update Reservations");
-        JButton btnLogout = new JButton("Logout");
+        JButton viewRoomsBtn = new JButton("View Rooms");
+        JButton updateRoomsBtn = new JButton("Update Rooms");
+        JButton updateResBtn = new JButton("Update Reservations");
+        JButton logoutBtn = new JButton("Logout");
 
         Dimension buttonSize = new Dimension(250, 35); //BUTTON SIZING
-        btnViewRooms.setMaximumSize(buttonSize);
-        btnUpdateRooms.setMaximumSize(buttonSize);
-        btnUpdateReservations.setMaximumSize(buttonSize);
-        btnLogout.setMaximumSize(buttonSize);
+        viewRoomsBtn.setMaximumSize(buttonSize);
+        updateRoomsBtn.setMaximumSize(buttonSize);
+        updateResBtn.setMaximumSize(buttonSize);
+        logoutBtn.setMaximumSize(buttonSize);
 
-        btnViewRooms.setAlignmentX(Component.CENTER_ALIGNMENT); //BUTTON ALIGNMENT
-        btnUpdateRooms.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btnUpdateReservations.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btnLogout.setAlignmentX(Component.CENTER_ALIGNMENT);
+        viewRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT); //BUTTON ALIGNMENT
+        updateRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        updateResBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        logoutBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JSeparator separator = new JSeparator(); //VISUAL SEPARATOR
         separator.setMaximumSize(new Dimension(300, 1));
@@ -52,21 +52,22 @@ public class AdminDashboardPanel extends JPanel {
         centerPanel.add(titleLabel);
         centerPanel.add(Box.createVerticalStrut(30));
 
-        centerPanel.add(btnViewRooms);
+        centerPanel.add(viewRoomsBtn);
         centerPanel.add(Box.createVerticalStrut(15));
-        centerPanel.add(btnUpdateRooms);
+        centerPanel.add(updateRoomsBtn);
         centerPanel.add(Box.createVerticalStrut(15));
-        centerPanel.add(btnUpdateReservations);
+        centerPanel.add(updateResBtn);
 
         centerPanel.add(Box.createVerticalStrut(30));
         centerPanel.add(separator);
         centerPanel.add(Box.createVerticalStrut(30));
 
-        centerPanel.add(btnLogout);
+        centerPanel.add(logoutBtn);
         centerPanel.add(Box.createVerticalGlue());
 
         // BUTTON ACTIONS
-        btnLogout.addActionListener(e -> frame.showPanel("HOME"));
+        viewRoomsBtn.addActionListener(e -> frame.showPanel("VIEW_ROOMS"));
+        logoutBtn.addActionListener(e -> frame.showPanel("HOME"));
 
         add(centerPanel, BorderLayout.CENTER);
     }
