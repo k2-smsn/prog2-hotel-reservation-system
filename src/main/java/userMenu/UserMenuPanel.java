@@ -43,7 +43,8 @@ public class UserMenuPanel extends JPanel {
         checkoutBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         //BUTTON ACTIONS
-        //----
+        viewRoomsBtn.addActionListener(e -> frame.showPanel("VIEW_ROOMS"));
+        bookBtn.addActionListener(e -> frame.showPanel("RESERVATION_FORM"));
         
         centerPanel.add(viewRoomsBtn);
         centerPanel.add(Box.createVerticalStrut(15));

@@ -10,6 +10,7 @@ import homePanel.HomePanel;
 import java.awt.CardLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import reservationFormPanel.ReservationFormPanel;
 import updateRooms.UpdateRoomsPanel;
 import userMenu.UserMenuPanel;
 import viewRooms.ViewRoomsPanel;
@@ -28,7 +29,8 @@ public class MainFrame extends JFrame{
     public ViewRoomsPanel viewRooms = new ViewRoomsPanel(this);
     public UpdateRoomsPanel updateRooms = new UpdateRoomsPanel(this);
     public UserMenuPanel userMenu = new UserMenuPanel(this);
-
+    public ReservationFormPanel reservationForm = new ReservationFormPanel(this);
+    
     public MainFrame() {
         //SETUP FRAME (this)
         setTitle("Hotel Reservation System");
@@ -40,19 +42,13 @@ public class MainFrame extends JFrame{
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout); //INITIALIZE MAIN PANEL W/ LAYOUT
         
-        // Panels
-        homePanel = new HomePanel(this);
-        adminLoginPanel = new AdminLoginPanel(this);
-        adminDashboard = new AdminDashboardPanel(this);
-        viewRooms = new ViewRoomsPanel(this);
-        updateRooms = new UpdateRoomsPanel(this);
-
         mainPanel.add(homePanel, "HOME");
         mainPanel.add(adminLoginPanel, "ADMIN_LOGIN");
         mainPanel.add(adminDashboard, "ADMIN_DASHBOARD");
         mainPanel.add(viewRooms, "VIEW_ROOMS");
         mainPanel.add(updateRooms, "UPDATE_ROOMS");
         mainPanel.add(userMenu, "USER_MENU");
+        mainPanel.add(reservationForm, "RESERVATION_FORM");
 
         setContentPane(mainPanel);
         setVisible(true);

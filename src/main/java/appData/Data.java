@@ -14,9 +14,14 @@ import java.util.List;
 // Static database
 public class Data {
 
-    public static final List<Room> rooms = new ArrayList<>();
+    public static final List<Room> rooms = new ArrayList<>(); //ROOMS
+    
+    //RESERVATIONS
+    public static final List<Reservation> reservations = new ArrayList<>();
 
-    static {
+    public static int bookingCounter = 1;
+
+    static { //ROOMS
         // Suites
         rooms.add(new Room(101, Room.Type.SUITE, false));
         rooms.add(new Room(102, Room.Type.SUITE, true));
