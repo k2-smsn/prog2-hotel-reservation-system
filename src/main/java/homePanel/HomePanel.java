@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import mainFrame.MainFrame;
+import image.ImagePanel;
 
 /**
  *
@@ -25,18 +26,19 @@ public class HomePanel extends JPanel{
         setLayout(new BorderLayout());
         
         // CENTER PANEL (70% of frame) - Background
-        JPanel backgroundPanel = new JPanel();
-        backgroundPanel.setBackground(new Color(40, 90, 130)); // placeholder
+        JPanel backgroundPanel = new ImagePanel("/home/k2/NetBeansProjects/HotelReservationSystem/src/main/java/hilton-hotels-resorts4207.jpg");
+        backgroundPanel.setPreferredSize(new Dimension(frame.getWidth() * 70 / 100, frame.getHeight()));
+
 
         // SIDE PANEL (30% of frame) - Welcome + Buttons
         JPanel sidePanel = new JPanel();
         sidePanel.setPreferredSize(new Dimension(270, 600)); // ~30% of 900
-        sidePanel.setBackground(Color.WHITE);
+        sidePanel.setBackground(Color.LIGHT_GRAY);
         sidePanel.setLayout(new BoxLayout(sidePanel, BoxLayout.Y_AXIS));
 
         //LABEL
         JLabel welcomeLabel = new JLabel("<html><center>Welcome to<br>Hilton Hotel</center></html>");
-        welcomeLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
+        welcomeLabel.setFont(new Font("Serif", Font.BOLD, 32));
         welcomeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         welcomeLabel.setHorizontalAlignment(JLabel.CENTER);
 

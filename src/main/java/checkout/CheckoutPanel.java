@@ -19,10 +19,10 @@ public class CheckoutPanel extends JPanel {
 
     public CheckoutPanel(MainFrame frame) {
         setLayout(new BorderLayout());
-        setBackground(Color.WHITE);
+        setBackground(Color.LIGHT_GRAY);
 
         // Title
-        JLabel titleLabel = new JLabel("Checkout", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("H I L T O N  |  Checkout", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         add(titleLabel, BorderLayout.NORTH);
@@ -30,7 +30,7 @@ public class CheckoutPanel extends JPanel {
         // Main content panel
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        content.setBackground(Color.WHITE);
+        content.setBackground(Color.LIGHT_GRAY);
 
         // Reservation ID input
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));

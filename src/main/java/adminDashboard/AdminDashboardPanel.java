@@ -16,12 +16,16 @@ public class AdminDashboardPanel extends JPanel {
 
     public AdminDashboardPanel(MainFrame frame) {
         setLayout(new BorderLayout());
-        setBackground(Color.WHITE);
+        setBackground(Color.LIGHT_GRAY);
         
         //INITIALIZE CENTER PANEL
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-        centerPanel.setBackground(Color.WHITE);
+        centerPanel.setBackground(Color.LIGHT_GRAY);
+        
+        JLabel logoLabel = new JLabel("H i l t o n"); //LOGO LABEL
+        logoLabel.setFont(new Font("Serif", Font.BOLD, 40));
+        logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel titleLabel = new JLabel("Admin Dashboard"); //TITLE
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
@@ -50,6 +54,9 @@ public class AdminDashboardPanel extends JPanel {
         
         //ASSEMBLE CENTER PANEL
         centerPanel.add(Box.createVerticalGlue());
+        centerPanel.add(logoLabel);
+        centerPanel.add(Box.createVerticalStrut(30));
+        
         centerPanel.add(titleLabel);
         centerPanel.add(Box.createVerticalStrut(30));
 

@@ -21,10 +21,10 @@ public class ViewRoomsPanel extends JPanel {
 
     public ViewRoomsPanel(MainFrame frame) {
         setLayout(new BorderLayout());
-        setBackground(Color.WHITE);
+        setBackground(Color.LIGHT_GRAY);
 
         // Title
-        JLabel titleLabel = new JLabel("View Rooms", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("H I L T O N  |  View Rooms", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         add(titleLabel, BorderLayout.NORTH);
@@ -32,7 +32,7 @@ public class ViewRoomsPanel extends JPanel {
         // Grid panel
         gridPanel = new JPanel(new GridLayout(ROWS, COLUMNS, 10, 10));
         gridPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        gridPanel.setBackground(Color.WHITE);
+        gridPanel.setBackground(Color.LIGHT_GRAY);
         
         updateRooms();
         

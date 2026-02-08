@@ -20,13 +20,15 @@ public class ReservationFormPanel extends JPanel {
 
     private Room selectedRoom = null;
     private JButton selectedButton = null;
+    
+    private JPanel roomPanel;
 
     public ReservationFormPanel(MainFrame frame) {
         setLayout(new BorderLayout());
-        setBackground(Color.WHITE);
-
+        setBackground(Color.LIGHT_GRAY);
+        
         //TITLE
-        JLabel title = new JLabel("Reservation Form", SwingConstants.CENTER);
+        JLabel title = new JLabel("H I L T O N  | Reservation Form", SwingConstants.CENTER);
         title.setFont(new Font("Segoe UI", Font.BOLD, 24));
         title.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         add(title, BorderLayout.NORTH);
@@ -64,36 +66,10 @@ public class ReservationFormPanel extends JPanel {
         datePanel.add(checkOutField);
 
         //ROOM SELECTION (THIRD PANEL)
-        JPanel roomPanel = new JPanel(new GridLayout(3, 4, 10, 10));
+        roomPanel = new JPanel(new GridLayout(3, 4, 10, 10));
         roomPanel.setBorder(BorderFactory.createTitledBorder("Select a Room"));
 
-        for (Room room : appData.Data.rooms) {
-            JButton roomBtn = new JButton(room.getType() + " : " + room.getRoomNumber());
-            roomBtn.setOpaque(true);
-            roomBtn.setForeground(Color.WHITE);
-            roomBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
-
-            if (room.isOccupied()) {
-                roomBtn.setBackground(Color.GRAY);
-                roomBtn.setEnabled(false);
-            } else {
-                roomBtn.setBackground(new Color(76, 175, 80));
-            }
-
-            roomBtn.addActionListener(e -> {
-                // Unselect previous
-                if (selectedButton != null) {
-                    selectedButton.setBorder(UIManager.getBorder("Button.border"));
-                }
-
-                // Select new
-                selectedRoom = room;
-                selectedButton = roomBtn;
-                roomBtn.setBorder(BorderFactory.createLineBorder(Color.BLUE, 3));
-            });
-
-            roomPanel.add(roomBtn);
-        }
+        updateRooms();
         
         // PRICE DISPLAY
         JLabel priceLabel = new JLabel("Final Price: ₱1000");
@@ -123,8 +99,6 @@ public class ReservationFormPanel extends JPanel {
         barCheck.addActionListener(e -> updatePrice.run());
         poolCheck.addActionListener(e -> updatePrice.run());
         breakfastCheck.addActionListener(e -> updatePrice.run());
-
-
 
         amenitiesPanel.add(barCheck);
         amenitiesPanel.add(poolCheck);
@@ -210,8 +184,42 @@ public class ReservationFormPanel extends JPanel {
         southPanel.add(bookBtn);
         southPanel.add(Box.createHorizontalStrut(10));
 
-        backBtn.addActionListener(e -> frame.showPanel("HOME"));
+        backBtn.addActionListener(e -> frame.showPanel("USER_MENU"));
 
         add(southPanel, BorderLayout.SOUTH);
+    }
+    
+    public void updateRooms() {
+        roomPanel.removeAll();
+        
+        for (Room room : appData.Data.rooms) {
+            JButton roomBtn = new JButton(room.getType() + " : " + room.getRoomNumber());
+            roomBtn.setOpaque(true);
+            roomBtn.setForeground(Color.WHITE);
+            roomBtn.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
+            if (room.isOccupied()) {
+                roomBtn.setBackground(Color.GRAY);
+                roomBtn.setEnabled(false);
+            } else {
+                roomBtn.setBackground(new Color(76, 175, 80));
+            }
+
+            roomBtn.addActionListener(e -> {
+                // Unselect previous
+                if (selectedButton != null) {
+                    selectedButton.setBorder(UIManager.getBorder("Button.border"));
+                }
+
+                // Select new
+                selectedRoom = room;
+                selectedButton = roomBtn;
+                roomBtn.setBorder(BorderFactory.createLineBorder(Color.BLUE, 3));
+            });
+
+            roomPanel.add(roomBtn);
+            roomPanel.revalidate();
+            roomPanel.repaint();
+        }
     }
 }

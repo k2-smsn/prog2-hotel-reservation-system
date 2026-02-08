@@ -18,17 +18,17 @@ public class ViewReservationsPanel extends JPanel {
 
     public ViewReservationsPanel(MainFrame frame) {
         setLayout(new BorderLayout());
-        setBackground(Color.WHITE);
-
+        setBackground(Color.LIGHT_GRAY);
+        
         // Title at the top
-        JLabel titleLabel = new JLabel("Current Reservations", SwingConstants.CENTER);
+        JLabel titleLabel = new JLabel("H I L T O N  |  Current Reservations", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(15, 0, 15, 0));
         add(titleLabel, BorderLayout.NORTH);
 
         // Panel that will hold all reservation labels vertically
         listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
-        listPanel.setBackground(Color.WHITE);
+        listPanel.setBackground(Color.LIGHT_GRAY);
 
         updateList(); //UPDATE LIST VIEW
 
@@ -76,11 +76,12 @@ public class ViewReservationsPanel extends JPanel {
 
                 reservationLabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
                 reservationLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+                reservationLabel.setForeground(Color.BLACK);
 
                 // Light border and padding so each reservation looks like a card
                 reservationLabel.setBorder(
                         BorderFactory.createCompoundBorder(
-                                BorderFactory.createLineBorder(Color.LIGHT_GRAY),
+                                BorderFactory.createLineBorder(Color.DARK_GRAY),
                                 BorderFactory.createEmptyBorder(10, 10, 10, 10)
                         )
                 );

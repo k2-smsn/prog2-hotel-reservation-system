@@ -16,18 +16,19 @@ public class UserMenuPanel extends JPanel {
 
     public UserMenuPanel(MainFrame frame) {
         setLayout(new BorderLayout());
-        setBackground(Color.WHITE);
+        setBackground(Color.LIGHT_GRAY);
 
         // Title
         JLabel titleLabel = new JLabel("User Menu", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        titleLabel.setBackground(Color.LIGHT_GRAY);
         titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
         add(titleLabel, BorderLayout.NORTH);
 
         // Center buttons panel
         JPanel centerPanel = new JPanel();
         centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-        centerPanel.setBackground(Color.WHITE);
+        centerPanel.setBackground(Color.LIGHT_GRAY);
 
         JButton viewRoomsBtn = new JButton("View Rooms");
         JButton bookBtn = new JButton("Book a room");
@@ -43,8 +44,16 @@ public class UserMenuPanel extends JPanel {
         checkoutBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         //BUTTON ACTIONS
-        viewRoomsBtn.addActionListener(e -> frame.showPanel("VIEW_ROOMS"));
-        bookBtn.addActionListener(e -> frame.showPanel("RESERVATION_FORM"));
+        viewRoomsBtn.addActionListener(e -> {
+            frame.showPanel("VIEW_ROOMS");
+            frame.viewRooms.updateRooms();
+        });
+        
+        bookBtn.addActionListener(e -> {
+            frame.showPanel("RESERVATION_FORM");
+            frame.reservationForm.updateRooms();
+        });
+        
         checkoutBtn.addActionListener(e -> frame.showPanel("CHECKOUT"));
         
         centerPanel.add(viewRoomsBtn);
@@ -58,11 +67,18 @@ public class UserMenuPanel extends JPanel {
         // Back button (south, left aligned)
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> frame.showPanel("HOME"));
+        
+        JLabel logoLabel = new JLabel("H i l t o n"); //LOGO LABEL
+        logoLabel.setFont(new Font("Serif", Font.BOLD, 40));
+        logoLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JPanel southPanel = new JPanel();
         southPanel.setLayout(new BoxLayout(southPanel, BoxLayout.X_AXIS));
         southPanel.add(Box.createHorizontalStrut(10));
         southPanel.add(backButton);
+        southPanel.add(Box.createHorizontalGlue());
+        southPanel.add(logoLabel); //INCLUDE LOGO
+        southPanel.add(Box.createHorizontalGlue());
         
         add(southPanel, BorderLayout.SOUTH);
     }
