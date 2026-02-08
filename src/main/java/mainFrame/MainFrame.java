@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import reservationFormPanel.ReservationFormPanel;
 import updateRooms.UpdateRoomsPanel;
 import userMenu.UserMenuPanel;
+import viewReservations.ViewReservationsPanel;
 import viewRooms.ViewRoomsPanel;
 
 /**
@@ -30,6 +31,7 @@ public class MainFrame extends JFrame{
     public UpdateRoomsPanel updateRooms = new UpdateRoomsPanel(this);
     public UserMenuPanel userMenu = new UserMenuPanel(this);
     public ReservationFormPanel reservationForm = new ReservationFormPanel(this);
+    public ViewReservationsPanel viewRes = new ViewReservationsPanel(this);
     
     public MainFrame() {
         //SETUP FRAME (this)
@@ -47,9 +49,10 @@ public class MainFrame extends JFrame{
         mainPanel.add(adminDashboard, "ADMIN_DASHBOARD");
         mainPanel.add(viewRooms, "VIEW_ROOMS");
         mainPanel.add(updateRooms, "UPDATE_ROOMS");
+        mainPanel.add(viewRes, "VIEW_RES");
         mainPanel.add(userMenu, "USER_MENU");
         mainPanel.add(reservationForm, "RESERVATION_FORM");
-
+        
         setContentPane(mainPanel);
         setVisible(true);
     }

@@ -30,22 +30,22 @@ public class AdminDashboardPanel extends JPanel {
         //BUTTONS SETUP
         JButton viewRoomsBtn = new JButton("View Rooms");
         JButton updateRoomsBtn = new JButton("Update Rooms");
-        JButton updateResBtn = new JButton("Update Reservations");
+        JButton viewResBtn = new JButton("View Reservations");
         JButton logoutBtn = new JButton("Logout");
 
         Dimension buttonSize = new Dimension(250, 35); //BUTTON SIZING
         viewRoomsBtn.setMaximumSize(buttonSize);
         updateRoomsBtn.setMaximumSize(buttonSize);
-        updateResBtn.setMaximumSize(buttonSize);
+        viewResBtn.setMaximumSize(buttonSize);
         logoutBtn.setMaximumSize(buttonSize);
         
         viewRoomsBtn.setFocusable(false);
         updateRoomsBtn.setFocusable(false);
-        updateResBtn.setFocusable(false);
+        viewResBtn.setFocusable(false);
         
         viewRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT); //BUTTON ALIGNMENT
         updateRoomsBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        updateResBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        viewResBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         logoutBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JSeparator separator = new JSeparator(); //VISUAL SEPARATOR
@@ -60,7 +60,7 @@ public class AdminDashboardPanel extends JPanel {
         centerPanel.add(Box.createVerticalStrut(15));
         centerPanel.add(updateRoomsBtn);
         centerPanel.add(Box.createVerticalStrut(15));
-        centerPanel.add(updateResBtn);
+        centerPanel.add(viewResBtn);
 
         centerPanel.add(Box.createVerticalStrut(30));
         centerPanel.add(separator);
@@ -76,7 +76,12 @@ public class AdminDashboardPanel extends JPanel {
         });
         
         updateRoomsBtn.addActionListener(e -> frame.showPanel("UPDATE_ROOMS"));
+        
         logoutBtn.addActionListener(e -> frame.showPanel("HOME"));
+        viewResBtn.addActionListener(e -> {
+            frame.showPanel("VIEW_RES");
+            frame.viewRes.updateList();
+        });
 
         add(centerPanel, BorderLayout.CENTER);
     }
