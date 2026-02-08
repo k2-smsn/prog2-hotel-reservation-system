@@ -28,6 +28,9 @@ public class Reservation {
     private boolean barAccess;
     private boolean poolAccess;
     private boolean breakfast;
+    
+    // Price
+    private double finalPrice;
 
     public Reservation(int bookingId,
                        String name,
@@ -38,7 +41,8 @@ public class Reservation {
                        Room room,
                        boolean barAccess,
                        boolean poolAccess,
-                       boolean breakfast) {
+                       boolean breakfast,
+                       double finalPrice) {
 
         this.bookingId = bookingId;
         this.name = name;
@@ -50,13 +54,15 @@ public class Reservation {
         this.barAccess = barAccess;
         this.poolAccess = poolAccess;
         this.breakfast = breakfast;
+        this.finalPrice = finalPrice;
     }
     
     //DATA GETTERS
     public int getBookingId() { return bookingId; }
     public Room getRoom() { return room; }
+    public double getFinalPrice() { return finalPrice; } 
 
-    public String getSummary() {//CREATE STRING SUMMARY
+    public String getSummary() {
         return "Booking ID: " + bookingId +
                "\nName: " + name +
                "\nRoom: " + room.getType() + " " + room.getRoomNumber() +
@@ -65,6 +71,8 @@ public class Reservation {
                "\nAmenities: " +
                (barAccess ? "Bar " : "") +
                (poolAccess ? "Pool " : "") +
-               (breakfast ? "Breakfast " : "");
+               (breakfast ? "Breakfast " : "") +
+               "\nFinal Price: ₱" + finalPrice;
     }
+
 }

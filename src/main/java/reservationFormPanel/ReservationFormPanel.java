@@ -95,6 +95,11 @@ public class ReservationFormPanel extends JPanel {
             roomPanel.add(roomBtn);
         }
         
+        // PRICE DISPLAY
+        JLabel priceLabel = new JLabel("Final Price: ₱1000");
+        priceLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        priceLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
         //AMENITIES
         JPanel amenitiesPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         amenitiesPanel.setBorder(BorderFactory.createTitledBorder("Amenities"));
@@ -102,15 +107,28 @@ public class ReservationFormPanel extends JPanel {
         JCheckBox barCheck = new JCheckBox("Bar Access");
         JCheckBox poolCheck = new JCheckBox("Pool Access");
         JCheckBox breakfastCheck = new JCheckBox("Breakfast");
+        
+        final int BASE_PRICE = 1000;
+
+        Runnable updatePrice = () -> {
+            int price = BASE_PRICE;
+
+            if (barCheck.isSelected()) price += 200;
+            if (poolCheck.isSelected()) price += 200;
+            if (breakfastCheck.isSelected()) price += 200;
+
+            priceLabel.setText("Final Price: ₱" + price);
+        };
+        
+        barCheck.addActionListener(e -> updatePrice.run());
+        poolCheck.addActionListener(e -> updatePrice.run());
+        breakfastCheck.addActionListener(e -> updatePrice.run());
+
+
 
         amenitiesPanel.add(barCheck);
         amenitiesPanel.add(poolCheck);
         amenitiesPanel.add(breakfastCheck);
-
-        // PRICE DISPLAY
-        JLabel priceLabel = new JLabel("Down Payment: ₱1,000");
-        priceLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
-        priceLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //ADD TO CONTENT (ASSEMBLE EVERY PANEL TO ONE)
         content.add(guestPanel);
@@ -131,6 +149,13 @@ public class ReservationFormPanel extends JPanel {
         
         //BOOK BUTTON FUNCTION
         bookBtn.addActionListener(e -> {
+            double finalPrice = 1000;
+
+            if (barCheck.isSelected()) finalPrice += 200;
+            if (poolCheck.isSelected()) finalPrice += 200;
+            if (breakfastCheck.isSelected()) finalPrice += 200;
+
+            
             if (nameField.getText().isEmpty() //HANDLE NO INPUT ERROR
                     || mobileField.getText().isEmpty()
                     || emailField.getText().isEmpty()
@@ -145,17 +170,18 @@ public class ReservationFormPanel extends JPanel {
 
             int bookingId = appData.Data.bookingCounter++; //INCREMENT ROOM RESERVATIONS FOR ID
 
-            Reservation reservation = new Reservation( //CREATE NEW RESERVATION OBJECT
-                    bookingId,
-                    nameField.getText(),
-                    mobileField.getText(),
-                    emailField.getText(),
-                    checkInField.getText(),
-                    checkOutField.getText(),
-                    selectedRoom,
-                    barCheck.isSelected(),
-                    poolCheck.isSelected(),
-                    breakfastCheck.isSelected()
+            Reservation reservation = new Reservation(
+                bookingId,
+                nameField.getText(),
+                mobileField.getText(),
+                emailField.getText(),
+                checkInField.getText(),
+                checkOutField.getText(),
+                selectedRoom,
+                barCheck.isSelected(),
+                poolCheck.isSelected(),
+                breakfastCheck.isSelected(),
+                finalPrice
             );
 
             appData.Data.reservations.add(reservation); //STORE NEW RESERVATION TO MINI DATABASE(ARRAYLIST)
